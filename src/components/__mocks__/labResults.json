@@ -1,0 +1,32 @@
+[
+    {
+        "date": "5 Aug",
+        "label": "Sugar",
+        "value": "140",
+        "unit": "mg/dL"
+    },
+    {
+        "date": "5 Aug",
+        "label": "Haemoglobin",
+        "value": "140",
+        "unit": "mg/dL"
+    },
+    {
+        "date": "5 Aug",
+        "label": "White Blood Cell",
+        "value": "140",
+        "unit": "mg/dL"
+    },
+    {
+        "date": "5 Aug",
+        "label": "Lymphocyte",
+        "value": "3800",
+        "unit": null
+    },
+    {
+        "date": "5 Aug",
+        "label": "Red Blood Cell",
+        "value": "4.9 million",
+        "unit": "cell/mcL"
+    }
+]

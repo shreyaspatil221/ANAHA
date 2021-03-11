@@ -1,0 +1,108 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "react/jsx-uses-vars": "error",
+    "react/prop-types": "off",
+    "indent": [
+      "error",
+      2
+    ],
+    "no-trailing-spaces": "error",
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1,
+        "maxEOF": 1,
+        "maxBOF": 1
+      }
+    ],
+    "eol-last": [
+      "error",
+      "always"
+    ],
+    "no-multi-spaces": "error",
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "no-extra-parens": "off",
+    "react/jsx-fragments": "error",
+    "react/jsx-curly-newline": "warn",
+    "react/state-in-constructor": "warn",
+    "react/static-property-placement": "warn",
+    "react/jsx-props-no-spreading": "warn",
+    "react/jsx-filename-extension": "off",
+    "import/no-unresolved": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/prefer-default-export": "off",
+    "no-shadow": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 140
+      }
+    ],
+    "no-bitwise": [
+      "error",
+      {
+        "allow": [
+          "~"
+        ]
+      }
+    ],
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": "warn",
+    "no-nested-ternary": "warn",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "react/no-array-index-key": "warn",
+    "import/extensions": "warn",
+    "jsx-a11y/control-has-associated-label": "warn",
+    "linebreak-style": 0
+  }
+}
