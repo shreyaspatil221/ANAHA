@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import { useState } from 'react';
 
 const list = css`
   top: 43px;
@@ -42,10 +43,12 @@ const company = css`
 
 const statusIcon = css`
   margin-right: 1rem;
+  position: relative;
 `;
 
 const menu = css`
   margin-right: 1rem;
+  position: relative;
 `;
 
 const notification = css`
@@ -88,6 +91,7 @@ const userInfo = css`
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+  position: relative;
   span { margin-right: 0.5rem;};
 `;
 
@@ -105,12 +109,64 @@ const flexRow = css`
 
 const padding = css`padding: 0.5rem 1rem;`;
 
+const menuDrop = css`
+  position: absolute;
+  top: 1.875rem;
+  left: 0;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; 
+  box-shadow: 0 0 1rem #2147961A;
+  border-radius: 0.5rem;
+  background: white;
+  span{
+    margin-right: 0;
+    padding: 0.5rem; 
+    border-bottom: 0.6px solid #d7d7d7;
+    :last-of-type{border-bottom: none;}
+  }
+`;
+
 export const Header = ({ headerProps }) => {
   const {
     t, search, changeSearch, show, expand, result
   } = headerProps;
     // eslint-disable-next-line camelcase
   const { location_suggestions } = result;
+  const [showMenu, setShowMenu] = useState(false);
+  const [notify, setNotify] = useState(false);
+  const [warning, setWarning] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
+
+  const toggleMenu = () => {
+    setNotify(false);
+    setWarning(false);
+    setShowInfo(false);
+    setShowMenu((prevState) => !prevState);
+  };
+
+  const toggleNotification = () => {
+    setShowMenu(false);
+    setWarning(false);
+    setShowInfo(false);
+    setNotify((prevState) => !prevState);
+  };
+
+  const toggleWarning = () => {
+    setShowMenu(false);
+    setNotify(false);
+    setShowInfo(false);
+    setWarning((prevState) => !prevState);
+  };
+
+  const toggleInfo = () => {
+    setShowMenu(false);
+    setNotify(false);
+    setWarning(false);
+    setShowInfo((prevState) => !prevState);
+  };
+
   return (
     <div css={header}>
       <div css={[company, padding]}>{t('company')}</div>
@@ -160,23 +216,43 @@ export const Header = ({ headerProps }) => {
         ) : null}
       </div>
       <div css={[flexRow, padding]}>
-        <button type="button" css={statusIcon}>
+        <button type="button" css={statusIcon} onClick={toggleWarning}>
           <img
             src="/static/images/warn.svg"
             alt="status icon"
             height="24px"
             width="24px"
           />
+          {warning
+            ? (
+              <div css={menuDrop}>
+                <span>Warning 1</span>
+                <span>Warning 2</span>
+                <span>Warning 3</span>
+              </div>
+            ) : null}
         </button>
-        <button type="button" css={menu}>
+        <button
+          type="button"
+          css={menu}
+          onClick={toggleMenu}
+        >
           <img
             src="/static/images/menu.svg"
             alt="menu icon"
             height="24px"
             width="24px"
           />
+          {showMenu
+            ? (
+              <div css={menuDrop}>
+                <span>Menu 1</span>
+                <span>Menu 2</span>
+                <span>Menu 3</span>
+              </div>
+            ) : null}
         </button>
-        <button type="button" css={notification}>
+        <button type="button" css={notification} onClick={toggleNotification}>
           <img
             src="/static/images/notification.svg"
             alt="notification bell icon"
@@ -184,6 +260,14 @@ export const Header = ({ headerProps }) => {
             width="24px"
           />
           <div css={count}>4</div>
+          {notify
+            ? (
+              <div css={menuDrop}>
+                <span>Message 1</span>
+                <span>Message 2</span>
+                <span>Message 3</span>
+              </div>
+            ) : null}
         </button>
       </div>
       <div css={[flexRow, padding]}>
@@ -195,7 +279,7 @@ export const Header = ({ headerProps }) => {
             width="44px"
           />
         </div>
-        <button css={userInfo} type="button">
+        <button css={userInfo} type="button" onClick={toggleInfo}>
           <span>{t('Dr. Raquel')}</span>
           <img
             src="/static/images/arrow-down.svg"
@@ -203,6 +287,14 @@ export const Header = ({ headerProps }) => {
             height="16px"
             width="16px"
           />
+          {showInfo
+            ? (
+              <div css={menuDrop}>
+                <span>Edit</span>
+                <span>Setting</span>
+                <span>Logout</span>
+              </div>
+            ) : null}
         </button>
       </div>
     </div>
