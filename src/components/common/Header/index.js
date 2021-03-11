@@ -282,7 +282,7 @@ export const Header = ({ headerProps }) => {
         <button css={userInfo} type="button" onClick={toggleInfo}>
           <span>{t('Dr. Raquel')}</span>
           <img
-            src="/static/images/arrow-down.svg"
+            src={`/static/images/${showInfo ? 'arrow-up' : 'arrow-down'}.svg`}
             alt="right arrow"
             height="16px"
             width="16px"
